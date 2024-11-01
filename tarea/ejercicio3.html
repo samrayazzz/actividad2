@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+         button{
+        background-color: rgb(85, 153, 216); 
+            border: 2px solid rgb(0, 0, 0);  
+            padding: 10px;               
+            width: 90px;               
+            text-align: center;         
+            border-radius: 10px;  
+            color: rgb(10, 11, 12);
+    }
+         body
+        {
+            background-image: url(https://javiercordero.com/wp-content/uploads/frases-descuentos-promociones-foto001.jpg);
+        }
+        label{
+            background-color: rgb(255, 255, 255); 
+            border: 2px solid rgb(0, 0, 0);  
+            padding: 20px;               
+            width: 300px;               
+            text-align: center;         
+            border-radius: 10px;  
+            color: rgb(10, 11, 12);
+        }
+        h2{
+            background-color: rgb(255, 255, 255); 
+            border: 2px solid rgb(0, 0, 0);  
+            padding: 20px;               
+            width: 300px;               
+            text-align: center;         
+            border-radius: 10px;  
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Descuentos</title>
+    <body style="background-color: azure;" ></body>
+    <center>
+    <script>
+        function calcularDescuento() {
+            const montoCompra = parseFloat(document.getElementById("monto").value);
+            if (isNaN(montoCompra) || montoCompra < 0) {
+                alert("Por favor, ingresa un monto válido.");
+            } else {
+                let montoFinal = montoCompra;
+                if (montoCompra > 100) {
+                    montoFinal = montoCompra * 0.9; 
+                }
+                alert("El monto final a pagar es: $" + montoFinal.toFixed(2));
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Evaluación de Descuentos</h2>
+    <label for="monto">Ingresa el monto total de tu compra:</label>
+    <input type="text" id="monto">
+    <button onclick="calcularDescuento()">Calcular</button>
+</center>
+</body>
+</html>

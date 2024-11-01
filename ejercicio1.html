@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<body style="background-color: rgb(243, 108, 160);" ></body>
+<style>
+    button{
+        background-color: rgb(85, 153, 216); 
+            border: 2px solid rgb(0, 0, 0);  
+            padding: 10px;               
+            width: 90px;               
+            text-align: center;         
+            border-radius: 10px;  
+            color: rgb(10, 11, 12);
+    }
+    body
+    {
+        background-image: url(https://static.vecteezy.com/system/resources/thumbnails/027/450/233/small_2x/classroom-interior-with-school-desks-chairs-and-green-board-empty-school-classroom-photo.jpg);
+    }
+    p{background-color: rgb(255, 255, 255); 
+            border: 2px solid rgb(0, 0, 0);  
+            padding: 20px;               
+            width: 300px;               
+            text-align: center;         
+            border-radius: 10px;  
+            color: rgb(10, 11, 12);
+    }
+    h1{background-color: rgb(255, 255, 255); 
+            border: 2px solid rgb(0, 0, 0);  
+            padding: 20px;               
+            width: 300px;               
+            text-align: center;         
+            border-radius: 10px;  
+            color: rgb(10, 11, 12);
+    }
+</style>
+
+    
+    
+   <title>Verificación de Calificaciones</title>
+
+</head>
+<body>
+   <center>
+     <h1>VERIFIQUE SI GANO O PERDIO</h1>
+    <p>Ingrese una calificación entre 0 y 100:</p>
+    <input type="number" id="calificacion" min="0" max="100" placeholder="numero">
+    <button onclick="verificarCalificacion()">Verificar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function verificarCalificacion() {
+            const calificacion = parseFloat(document.getElementById("calificacion").value);
+            const resultado = document.getElementById("resultado");
+
+            if (calificacion >= 90 && calificacion <= 100) {
+                resultado.textContent = "Aprobado con honores";
+            } else if (calificacion >= 70 && calificacion < 90) {
+                resultado.textContent = "Aprobado";
+            } else if (calificacion >= 0 && calificacion < 70) {
+                resultado.textContent = "Reprobado";
+            } else {
+                resultado.textContent = "Por favor, ingrese una calificación válida entre 0 y 100.";
+            
+            }
+        }
+
+    </script>
+    </center>
+</body>
+</html>

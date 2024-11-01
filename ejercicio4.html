@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinanza de Números</title>
+    <style>
+         button{
+        background-color: rgb(85, 153, 216); 
+            border: 2px solid rgb(0, 0, 0);  
+            padding: 10px;               
+            width: 90px;               
+            text-align: center;         
+            border-radius: 10px;  
+            color: rgb(10, 11, 12);
+    }
+        body {
+            background-image: url(https://w7.pngwing.com/pngs/498/25/png-transparent-riddle-quiz-kings-funny-riddles-riddles-quiz-quiz-miscellaneous-game-android-thumbnail.png);
+            background-color: rgb(195, 195, 255);
+            text-align: center;
+        }
+        p {
+            background-color: rgb(255, 255, 255);
+            border: 2px solid rgb(0, 0, 0);
+            padding: 20px;
+            width: 300px;
+            margin: 10px auto;
+            border-radius: 10px;
+            color: rgb(10, 11, 12);
+        }
+        h1 {
+            background-color: rgb(255, 255, 255);
+            border: 2px solid rgb(0, 0, 0);
+            padding: 20px;
+            width: 300px;
+            margin: 10px auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juego de Adivinanza de Números</h1>
+    <p>Intenta adivinar el número (entre 1 y 10):</p>
+    <input type="number" id="adivinanza" min="1" max="10">
+    <button onclick="adivinarNumero()">Adivinar</button>
+    <p id="resultado"></p>
+
+    <script>
+        let numeroAleatorio;
+
+        function generarNumero() {
+            numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+        }
+
+        function adivinarNumero() {
+            if (!numeroAleatorio) generarNumero(); // Genera el número si aún no se ha generado
+
+            const adivinanza = parseInt(document.getElementById("adivinanza").value);
+            const resultado = document.getElementById("resultado");
+
+            if (isNaN(adivinanza) || adivinanza < 1 || adivinanza > 10) {
+                resultado.textContent = "Por favor, ingresa un número válido entre 1 y 10.";
+                return;
+            }
+
+            if (adivinanza === numeroAleatorio) {
+                resultado.textContent = "¡Felicidades, adivinaste el número!";
+                generarNumero(); // Genera un nuevo número para la siguiente ronda
+            } else {
+                resultado.textContent = `Lo siento, el número era ${numeroAleatorio}.`;
+                generarNumero(); // Genera un nuevo número para la siguiente ronda
+            }
+        }
+    </script>
+</body>
+</html>
