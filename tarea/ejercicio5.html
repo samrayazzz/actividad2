@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 5</title>
+    <style>
+        body {
+            background-color: azure;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estructura del laboratorio SLM</h1>
+
+    <h2>Parte 1: Bucle 'for'</h2>
+    <p>Suma total y promedio de un arreglo de números</p>
+    <button onclick="calcularSumaYPromedio()">Calcular Suma y Promedio</button>
+    <p id="resultadoSuma"></p>
+
+    <h2>Parte 2: Bucle 'while'</h2>
+    <p>Ingrese números hasta que ingrese un número negativo</p>
+    <button onclick="pedirNumeros()">Iniciar Ingreso de Números</button>
+    <p id="resultadoWhile"></p>
+
+    <h2>Parte 3: Bucle 'do while'</h2>
+    <p>Ingrese una contraseña hasta que sea correcta</p>
+    <button onclick="verificarContrasena()">Verificar Contraseña</button>
+    <p id="resultadoDoWhile"></p>
+
+    <script>
+        function calcularSumaYPromedio() {
+            const numeros = [5, 10, 15, 20]; 
+            let suma = 0;
+
+            for (let i = 0; i < numeros.length; i++) {
+                suma += numeros[i];
+            }
+
+            const promedio = suma / numeros.length;
+            document.getElementById("resultadoSuma").textContent = 
+                `La suma total es: ${suma}, y el promedio es: ${promedio.toFixed(2)}`;
+        }
+
+        function pedirNumeros() {
+            let numero;
+            let resultado = "Números ingresados: ";
+            
+            while (true) {
+                numero = parseFloat(prompt("Ingrese un número (negativo para terminar):"));
+                if (numero < 0) break;
+                resultado += numero + " ";
+            }
+
+            document.getElementById("resultadoWhile").textContent = resultado;
+        }
+
+        function verificarContrasena() {
+            const contrasenaCorrecta = "1234"; 
+            let contrasenaIngresada;
+
+            do {
+                contrasenaIngresada = prompt("Ingrese la contraseña:");
+            } while (contrasenaIngresada !== contrasenaCorrecta);
+
+            document.getElementById("resultadoDoWhile").textContent = "Contraseña correcta, acceso permitido.";
+        }
+    </script>
+</body>
+</html>
